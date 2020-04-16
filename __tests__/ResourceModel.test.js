@@ -1,4 +1,5 @@
 import Resource from '../Resource.js';
+import assert from '../utils/assert.js';
 
 export default {
   scope: 'Resource',
@@ -10,7 +11,7 @@ export default {
 
         resource.startLoading();
 
-        console.assert(resource.isLoading() === true);
+        assert(resource.isLoading() === true);
       },
     },
     {
@@ -24,7 +25,7 @@ export default {
 
         const data = resource.getData();
 
-        console.assert(JSON.stringify(expectedData) === JSON.stringify(data));
+        assert(JSON.stringify(expectedData) === JSON.stringify(data));
       },
     },
     {
@@ -36,7 +37,7 @@ export default {
         resource.startLoading();
         resource.handleError(error);
 
-        console.assert(resource.getError() === error);
+        assert(resource.getError() === error);
       },
     },
     {
@@ -51,7 +52,7 @@ export default {
         resource.startLoading();
         resource.handleError(error);
 
-        console.assert(resource.getData() === data);
+        assert(resource.getData() === data);
       },
     },
   ],

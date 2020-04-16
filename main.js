@@ -13,11 +13,7 @@ const allSuitesTimerLabel = 'All tests finished';
 async function runTests(tests) {
   for (const { label, test } of tests) {
     console.group(label);
-    try {
-      await test();
-    } catch (e) {
-      console.error('test się wyjebał')
-    }
+    await test();
     console.groupEnd();
   }
 }
