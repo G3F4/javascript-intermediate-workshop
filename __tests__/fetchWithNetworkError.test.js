@@ -1,5 +1,5 @@
 import { fetchWithNetworkError } from '../fetchWithNetworkError.js';
-import assert from '../utils/assert.js';
+import assert from './utils/assert.js';
 
 export default {
   scope: 'fetchWithNetworkError',

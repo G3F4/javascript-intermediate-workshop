@@ -1,6 +1,6 @@
 import State from '../State.js';
-import assert from '../utils/assert.js';
-import expect from '../utils/expect.js';
+import assert from './utils/assert.js';
+import expect from './utils/expect.js';
 
 export default {
   scope: 'StateModel',
