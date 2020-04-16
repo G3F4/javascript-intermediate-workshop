@@ -1,5 +1,5 @@
 import retry from '../retry.js';
-import expect from '../utils/expect.js';
+import expect from './utils/expect.js';
 
 function throwError() {
   throw new Error('error');
