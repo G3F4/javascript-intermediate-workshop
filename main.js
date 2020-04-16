@@ -1,19 +1,36 @@
-import resourceModelTests from './__tests__/ResourceModel.test.js';
+import fetchWithNetworkErrorTests from './__tests__/fetchWithNetworkError.test.js';
 import stateModelTests from './__tests__/StateModel.test.js';
+import resourceModelTests from './__tests__/ResourceModel.test.js';
 
-const tests = [
-  ...resourceModelTests,
-  ...stateModelTests,
+const testSuites = [
+  fetchWithNetworkErrorTests,
+  resourceModelTests,
+  stateModelTests,
 ];
 
-function runTests() {
+const allSuitesTimerLabel = 'All tests finished';
+
+async function runTests(tests) {
   for (const { label, test } of tests) {
-    console.groupCollapsed(label);
-    console.time('duration');
-    test();
-    console.timeEnd('duration');
+    console.group(label);
+    try {
+      await test();
+    } catch (e) {
+      console.error('test się wyjebał')
+    }
     console.groupEnd();
   }
 }
 
-runTests().then(() => {});
+async function runTestSuites(testSuites) {
+  console.time(allSuitesTimerLabel);
+  for (const { scope, tests } of testSuites) {
+    console.groupCollapsed(scope);
+    await runTests(tests);
+    console.groupEnd();
+  }
+}
+
+runTestSuites(testSuites).then(() => {
+  console.timeEnd(allSuitesTimerLabel);
+});
