@@ -1,44 +1,58 @@
-import ResourceModel from '../ResourceModel.js';
+import Resource from '../Resource.js';
 
-export default [
-  {
-    label: 'validFetchTest',
-    test() {
-      const resource = new ResourceModel();
+export default {
+  scope: 'Resource',
+  tests: [
+    {
+      label: 'can be in loading state',
+      test() {
+        const resource = new Resource();
 
-      resource.print();
+        resource.startLoading();
 
-      resource.startLoading();
-
-      fetch('./data.json').then(response => {
-        response.json().then(data => {
-          resource.stopLoading(data);
-        });
-      }).catch(error => resource.handleError(error));
+        console.assert(resource.isLoading() === true);
+      },
     },
-  },
-  {
-    label: 'invalidFetchTest',
-    test() {
-      const resource = new ResourceModel();
+    {
+      label: 'can store data after loading',
+      test() {
+        const expectedData = { test: true };
+        const resource = new Resource();
 
-      resource.print();
-      resource.startLoading();
+        resource.startLoading();
+        resource.stopLoading(expectedData);
 
-      fetchWithNetworkError('./missing.json').catch(error => {
-        resource.handleError(error.message);
-        resource.print();
-      });
+        const data = resource.getData();
+
+        console.assert(JSON.stringify(expectedData) === JSON.stringify(data));
+      },
     },
-  }
-]
+    {
+      label: 'can store error after loading',
+      test() {
+        const error = 'This is error';
+        const resource = new Resource();
 
-function fetchWithNetworkError(url) {
-  return fetch(url).then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Network error occurred while fetching');
-    }
-  });
+        resource.startLoading();
+        resource.handleError(error);
+
+        console.assert(resource.getError() === error);
+      },
+    },
+    {
+      label: 'keep stored data after handling error',
+      test() {
+        const error = 'This is error';
+        const data = 'This is data';
+        const resource = new Resource();
+
+        resource.startLoading();
+        resource.stopLoading(data);
+        resource.startLoading();
+        resource.handleError(error);
+
+        console.assert(resource.getData() === data);
+      },
+    },
+  ],
 }
