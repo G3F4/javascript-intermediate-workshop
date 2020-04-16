@@ -1,9 +1,11 @@
 import fetchWithNetworkErrorTests from './__tests__/fetchWithNetworkError.test.js';
+import retryTests from './__tests__/retry.test.js';
 import stateModelTests from './__tests__/StateModel.test.js';
 import resourceModelTests from './__tests__/ResourceModel.test.js';
 
 const testSuites = [
   fetchWithNetworkErrorTests,
+  retryTests,
   resourceModelTests,
   stateModelTests,
 ];
@@ -13,7 +15,11 @@ const allSuitesTimerLabel = 'All tests finished';
 async function runTests(tests) {
   for (const { label, test } of tests) {
     console.group(label);
-    await test();
+    try {
+      await test();
+    } catch (e) {
+      console.error(e.toString());
+    }
     console.groupEnd();
   }
 }
