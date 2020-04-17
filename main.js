@@ -1,4 +1,4 @@
-import fetchWithNetworkErrorTests from './__tests__/fetchWithNetworkError.test.js';
+import fetchTests from './__tests__/fetch.test.js';
 import retryTests from './__tests__/retry.test.js';
 import modelTests from './__tests__/Model.test.js';
 import stateTests from './__tests__/State.test.js';
@@ -7,7 +7,7 @@ import resourceTests from './__tests__/Resource.test.js';
 const testSuites = [
   modelTests,
   stateTests,
-  fetchWithNetworkErrorTests,
+  fetchTests,
   resourceTests,
   retryTests,
 ];
