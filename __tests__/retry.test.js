@@ -12,15 +12,18 @@ export default {
       label: 'can retry call for 3 times',
       async test() {
         let times = 3;
-        retry(() => {
+        const received = retry(() => {
           times--;
 
           if (times !== 0) {
             throwError();
           }
+
+          return true;
         });
 
         expect(times).toBe(0);
+        expect(received).toBe(true);
       },
     },
     {
