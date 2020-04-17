@@ -1,5 +1,5 @@
 import { fetchWithNetworkError } from '../fetchWithNetworkError.js';
-import assert from './utils/assert.js';
+import expect from './utils/expect.js';
 
 export default {
   scope: 'fetchWithNetworkError',
@@ -8,7 +8,7 @@ export default {
       label: 'fetches existing json',
       async test() {
         return fetchWithNetworkError('./data.json').then(data => {
-          assert(data.test === true, 'returned data is invalid');
+          expect(data.test).toBe(true);
         });
       },
     },
@@ -18,7 +18,7 @@ export default {
         try {
           await fetchWithNetworkError('./missing.json');
         } catch (error) {
-          assert(error.message === 'Network error occurred while fetching', 'fetch error not handled');
+          expect(error.message).toBe('Network error occurred while fetching');
         }
       },
     }

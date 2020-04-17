@@ -1,5 +1,5 @@
 import Resource from '../Resource.js';
-import assert from './utils/assert.js';
+import expect from './utils/expect.js';
 
 export default {
   scope: 'Resource',
@@ -11,7 +11,7 @@ export default {
 
         resource.startLoading();
 
-        assert(resource.isLoading() === true);
+        expect(resource.isLoading()).toBe(true);
       },
     },
     {
@@ -25,7 +25,7 @@ export default {
 
         const data = resource.getData();
 
-        assert(JSON.stringify(expectedData) === JSON.stringify(data));
+        expect(JSON.stringify(expectedData)).toBe(JSON.stringify(data));
       },
     },
     {
@@ -37,7 +37,7 @@ export default {
         resource.startLoading();
         resource.handleError(error);
 
-        assert(resource.getError() === error);
+        expect(resource.getError()).toBe(error);
       },
     },
     {
@@ -52,7 +52,7 @@ export default {
         resource.startLoading();
         resource.handleError(error);
 
-        assert(resource.getData() === data);
+        expect(resource.getData()).toBe(data);
       },
     },
   ],
