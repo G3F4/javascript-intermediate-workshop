@@ -22,8 +22,4 @@ export default class Model {
   has(key) {
     return this.hasOwnProperty(key);
   }
-
-  print() {
-    console.log(JSON.stringify(this, null, 2));
-  }
 }

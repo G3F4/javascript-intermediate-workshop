@@ -1,13 +1,13 @@
 import fetchWithNetworkErrorTests from './__tests__/fetchWithNetworkError.test.js';
 import retryTests from './__tests__/retry.test.js';
-import stateModelTests from './__tests__/StateModel.test.js';
+import stateModelTests from './__tests__/State.test.js';
 import resourceModelTests from './__tests__/ResourceModel.test.js';
 
 const testSuites = [
-  fetchWithNetworkErrorTests,
-  retryTests,
-  resourceModelTests,
   stateModelTests,
+  fetchWithNetworkErrorTests,
+  resourceModelTests,
+  retryTests,
 ];
 
 const allSuitesTimerLabel = 'All tests finished';
