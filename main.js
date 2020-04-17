@@ -1,12 +1,14 @@
 import fetchWithNetworkErrorTests from './__tests__/fetchWithNetworkError.test.js';
 import retryTests from './__tests__/retry.test.js';
-import stateModelTests from './__tests__/State.test.js';
-import resourceModelTests from './__tests__/ResourceModel.test.js';
+import modelTests from './__tests__/Model.test.js';
+import stateTests from './__tests__/State.test.js';
+import resourceTests from './__tests__/Resource.test.js';
 
 const testSuites = [
-  stateModelTests,
+  modelTests,
+  stateTests,
   fetchWithNetworkErrorTests,
-  resourceModelTests,
+  resourceTests,
   retryTests,
 ];
 
