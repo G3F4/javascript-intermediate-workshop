@@ -26,17 +26,6 @@ export default {
       expect(state.has(newFieldKey)).toBe(true);
     }
   }, {
-    label: 'can check if field exists',
-    test() {
-      const state = new Model();
-      const newFieldKey = 'newFieldKey';
-      const newFieldValue = 'newFieldValue';
-
-      state.set(newFieldKey, newFieldValue);
-
-      expect(state.has(newFieldKey)).toBe(true);
-    }
-  }, {
     label: 'throws error while getting missing field',
     test() {
       const state = new Model();
