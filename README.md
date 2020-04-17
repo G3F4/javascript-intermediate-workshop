@@ -10,6 +10,8 @@ Aby odpalić testy, otwórz plik `index.html` w przeglądarce, i otwrzórz narz�
 Zadanie jest rozwiązane jeśli test nie rzuca błędem.
 Wynik testów jest wyświetlony w przeglądarce w konsoli narzędzi deweloperskich.
 Zadania są podzielone tematycznie. W kolejnych plikach z testami zostały wydzielone tematy.
+Po wykonaniu zadań stworzony kod wykorzystamy w działającej aplikacji - prostej grze w wisielca(projekt na github).
+W ramach utrwalenia wiedzy dodamy ładowanie haseł z pliku oraz wyabstrachujemy część kodu odpowiedzialną za stan aplikacji przy użyciu klas.
 
 
 ## Klasy
@@ -98,3 +100,21 @@ Po inicjalnie załodowanych danych, zasób może zostać przeładowany. Podczas 
 
 #### Ponawianie nieudanych wywołań
 Dodać funckję `retry`, która będzie ponawiać wywołanie funkcji przekazanej jako argument `n` razy.
+
+
+## Wykorzystanie zdobytej wiedzy w praktyce
+Sklonuj lub pobierz repozytorium:
+https://github.com/G3F4/javascript-basics-workshop
+
+### Zadania
+
+#### Pobranie haseł z pliku JSON
+Stwórz plik `JSON`, w którym będę znajdować się hasła do odgadnięcia w grze.
+Wykorzystaj wcześniej stworzoną funkcję do pobierania danych.
+
+### Stan ładowania
+Wykorzystaj klasę reprezentującą zasób w połączeniu z funkcją do pobierania danych, aby obsłużyć stan ładowania.
+Aplikacja podczas ładowania powinna prezentować napis `Ładowanie haseł, proszę czekać`.
+
+### Wykorzystanie klasy reprezentującej stan aplikacji
+Wykorzystaj klasę reprezentującą stan aplikacji wszędzie tam gdzie aktualnie aplikacja korzysta ze zwykłego obiektu i funkcji pomocnicznej aktualizującej ten obiekt.
