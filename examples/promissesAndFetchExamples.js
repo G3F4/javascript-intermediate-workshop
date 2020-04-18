@@ -8,3 +8,15 @@ aPromise.then(value => {
 bPromise.catch(reason => {
   console.log(['bPromise rejected reason'], reason);
 });
+
+// we need IFEE because JavaScript cannot handle top level async/await syntax
+(async () => {
+  const resolvedValue = await aPromise;
+  console.log(['async/await aPromise resoled value'], resolvedValue);
+
+  try {
+    await bPromise;
+  } catch (reason) {
+    console.log(['async/await bPromise rejected reason'], reason);
+  }
+})();

@@ -76,7 +76,7 @@ Pierwszym etapem warsztatu jest zrozumienie klas.
 * Aby zarejestrować zdarzenia wykorzystująć metodę `then`, zwracaną po utworzeniu nowego obiektu typu `Promise`
 ```javascript
 function functionReturningPromise() {
-  return fetch('http://localhost/data.JSON');
+  return new Promise(((resolve, reject) => { condition ? resolve({ data: {} }) : reject('error') }));
 }
 function success(response) {}
 function failure(error) {}
