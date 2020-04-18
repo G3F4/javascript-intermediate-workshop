@@ -37,3 +37,31 @@ function func(value = 1) {
 }
 
 console.log(['func()()()'], func()()());
+
+function createCounter() {
+  let state = 0;
+
+  return {
+    getValue() {
+      return state;
+    },
+    increase() {
+      state++;
+    },
+    decrease() {
+      state--;
+    },
+  }
+}
+
+const counter = createCounter();
+
+console.log(['counter.getValue()'], counter.getValue());
+
+counter.increase();
+
+console.log(['counter.getValue()'], counter.getValue());
+
+counter.decrease();
+
+console.log(['counter.getValue()'], counter.getValue());
