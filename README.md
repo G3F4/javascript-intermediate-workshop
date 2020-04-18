@@ -68,7 +68,43 @@ Pierwszym etapem warsztatu jest zrozumienie klas.
 ## Promise, fetch api i praktyczne zastosowanie klas
 
 ### Teoria
-TODO
+
+* Promise jest to interfejs reprezentujący wynik działania, które ma nieokreślony czas trwania np. pobranie pliku.
+* Innymi słowy jest to obietnica wywołanej funkcji, że jej działąnie skończy się w przyszłości i możemy czekać na wynik.
+* Aby czekać na wynik należy zarejestrować zdarzenie, które ma się wydarzyć kiedy funkcja skończy pracę i będzie gotowa zwrócić wynik.
+* W przypadku niepowodzenia (np. timeout sieci), mamy możliwość obługi takiej sytuacji, rejestrując odpowiednio zdarzenie.
+* Aby zarejestrować zdarzenia wykorzystująć metodę `then`, zwracaną po utworzeniu nowego obiektu typu `Promise`
+```javascript
+function functionReturningPromise() {
+  return fetch('http://localhost/data.JSON');
+}
+function success(response) {}
+function failure(error) {}
+functionReturningPromise().then(success, failure);
+``` 
+
+* Od ES6 w przeglądarki jest wbudowana funkcja `fetch` służąca do pobienia zasób z sieci.
+* Wywołanie `fetch` zwraca obiekt `Promise`
+* Błąd serwera nie jest błędem pobierania - nie jest to wyjątek, więc zostanie wywołany callback `success` - pierwszy argument metody `then`.
+* api:
+```javascript
+fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+      // ... 
+      // others http valid headers
+      // ...
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // typ danych musi być zgodny z headerem "Content-Type"
+})
+```
 
 
 ### Zadania
@@ -98,6 +134,32 @@ TODO
 
 #### Ponawianie nieudanych wywołań
 * Dodać funckję `retry`, która będzie ponawiać wywołanie funkcji przekazanej jako argument `n` razy.
+
+
+## Dokmnięcia
+
+* Domknięcie wyznacza zasięg zmiennej dostępnej w kodzie.
+* Domknięcie posiada pamięć, w której przechowuje zmienne i funkcje.
+* Kiedy domknięcie nie jest już potrzebne garbage collector zwalnia pamięć.
+* Najprostszym domknięcie nawiasów klamrowych(od e6).
+```javascript
+{
+  // to jest najprostsze domknięcie
+  const a = true; // dostęp do tej zmiennej będzie możliwy tylko w tym domknięciu
+}
+```
+* Najczęściej wykorzystywanym jest domknięcie tworzone przez wywołanie funkcji
+```javascript
+() => {
+  // domknięcie stworzone przez funkcję
+  const b = 'test'; // ta zmienna będzie dostępna tylko wewnątrz funkcji, nigdy poza
+}
+```
+
+### Zadanie
+
+Wykorzystyjąc mechanizm domknięć odtwórz funkcjonalność wcześniej stworzonej klasy `Resource`
+
 
 
 ## Wykorzystanie zdobytej wiedzy w praktyce

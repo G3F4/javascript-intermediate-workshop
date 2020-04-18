@@ -6,33 +6,33 @@ export default {
   tests: [{
     label: 'can stored new field',
     test() {
-      const state = new Model();
+      const model = new Model();
       const newFieldKey = 'newFieldKey';
       const newFieldValue = 'newFieldValue';
 
-      state.set(newFieldKey, newFieldValue);
+      model.set(newFieldKey, newFieldValue);
 
-      expect(state.get(newFieldKey)).toBe(newFieldValue);
+      expect(model.get(newFieldKey)).toBe(newFieldValue);
     }
   }, {
     label: 'can check if field exists',
     test() {
-      const state = new Model();
+      const model = new Model();
       const newFieldKey = 'newFieldKey';
       const newFieldValue = 'newFieldValue';
 
-      state.set(newFieldKey, newFieldValue);
+      model.set(newFieldKey, newFieldValue);
 
-      expect(state.has(newFieldKey)).toBe(true);
+      expect(model.has(newFieldKey)).toBe(true);
     }
   }, {
     label: 'throws error while getting missing field',
     test() {
-      const state = new Model();
+      const model = new Model();
       const missingFieldKey = 'missingField';
 
       try {
-        state.get(missingFieldKey);
+        model.get(missingFieldKey);
       } catch (e) {
         expect(e.message).toBe(`No field in model for key: ${missingFieldKey}`);
       }
@@ -40,52 +40,52 @@ export default {
   }, {
     label: 'allow to chain set operation',
     test() {
-      const state = new Model();
+      const model = new Model();
       const firstFieldKey = 'abc';
       const firstFieldValue = 'test1';
       const secondFieldKey = 'xyz';
       const secondFieldValue = 'test2';
 
-      state
+      model
         .set(firstFieldKey, firstFieldValue)
         .set(secondFieldKey, secondFieldValue);
 
-      expect(state.get(firstFieldKey)).toBe(firstFieldValue);
-      expect(state.get(secondFieldKey)).toBe(secondFieldValue);
+      expect(model.get(firstFieldKey)).toBe(firstFieldValue);
+      expect(model.get(secondFieldKey)).toBe(secondFieldValue);
     }
   }, {
     label: 'allow to chain set and get operation',
     test() {
-      const state = new Model();
+      const model = new Model();
       const firstFieldKey = 'abc';
       const firstFieldValue = 'test1';
       const secondFieldKey = 'xyz';
       const secondFieldValue = 'test2';
 
-      state.set(firstFieldKey, firstFieldValue);
-      const secondFieldFromState = state
+      model.set(firstFieldKey, firstFieldValue);
+      const secondFieldFromState = model
         .set(secondFieldKey, secondFieldValue)
         .get(secondFieldKey);
 
-      expect(state.get(firstFieldKey)).toBe(firstFieldValue);
+      expect(model.get(firstFieldKey)).toBe(firstFieldValue);
       expect(secondFieldFromState).toBe(secondFieldValue);
     }
   }, {
     label: 'allow to set multiple value',
     test() {
-      const state = new Model();
+      const model = new Model();
       const firstFieldKey = 'abc';
       const firstFieldValue = 'test1';
       const secondFieldKey = 'xyz';
       const secondFieldValue = 'test2';
 
-      state.update({
+      model.update({
         [firstFieldKey]: firstFieldValue,
         [secondFieldKey]: secondFieldValue,
       });
 
-      expect(state.get(firstFieldKey)).toBe(firstFieldValue);
-      expect(state.get(secondFieldKey)).toBe(secondFieldValue);
+      expect(model.get(firstFieldKey)).toBe(firstFieldValue);
+      expect(model.get(secondFieldKey)).toBe(secondFieldValue);
     }
   }],
 };

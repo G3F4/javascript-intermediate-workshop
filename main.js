@@ -3,6 +3,7 @@ import retryTests from './__tests__/retry.test.js';
 import modelTests from './__tests__/Model.test.js';
 import stateTests from './__tests__/State.test.js';
 import resourceTests from './__tests__/Resource.test.js';
+import resourceFactoryTests from './__tests__/ResourceFactory.test.js';
 
 const testSuites = [
   modelTests,
@@ -10,6 +11,7 @@ const testSuites = [
   fetchTests,
   resourceTests,
   retryTests,
+  resourceFactoryTests,
 ];
 
 const allSuitesTimerLabel = 'All tests finished';
