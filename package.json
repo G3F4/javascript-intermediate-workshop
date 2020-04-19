@@ -1,0 +1,24 @@
+{
+  "name": "warsawjs-workshop-43",
+  "version": "1.0.0",
+  "description": "## Opis warsztatu * Podczas warsztatów będziemy wykorzystywać wyłącznie przeglądarkę internetową ze wsparciem `ES6+`. * Warsztat posiada formę zadań do rozwiązania. * Na każde zadanie przygotowany jest test. Nie można zmieniać kodu testu. * Funkcje, które należy zaimplementować są już stworzone. Podczas warszatu nie trzeba tworzyć żadnych nowych plików. * Aby odpalić testy, otwórz plik `index.html` w przeglądarce, i otwórz narzędzia deweloperski i znajdź konsolę.  * Wynik testów jest wyświetlony w przeglądarce w konsoli narzędzi deweloperskich. Zadanie jest rozwiązane, jeśli test nie rzuca błędem.  * Zadania są podzielone tematycznie. W kolejnych plikach z testami zostały wydzielone tematy.  * Po wykonaniu zadań stworzony kod wykorzystamy w działającej aplikacji — prostej grze w wisielca (projekt na github).  * W ramach utrwalenia wiedzy dodamy ładowanie haseł z pliku oraz wyabstrahujemy część kodu odpowiedzialną za stan aplikacji przy użyciu klas.",
+  "main": "main.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "start": "npx http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G3F4/warsawjs-workshop-43.git"
+  },
+  "author": "G3F4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/G3F4/warsawjs-workshop-43/issues"
+  },
+  "homepage": "https://github.com/G3F4/warsawjs-workshop-43#readme",
+  "dependencies": {}
+}
