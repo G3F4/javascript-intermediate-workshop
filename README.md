@@ -1,4 +1,4 @@
-# Warsawjs workshop 43 - intermediate javascript training
+# JavaScript intermediate workshop
 
 ## Opis warsztatu
 * Podczas warsztatów będziemy wykorzystywać wyłącznie przeglądarkę internetową ze wsparciem `ES6+`.
